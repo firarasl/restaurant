@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "food")
-public class Food {
+@Table(name = "book")
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -16,6 +16,13 @@ public class Food {
     @JoinColumn(name="category_id")
     private Category category;
 
+    // one book can belong to only one Author
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="author_id")
+    private Author author;
+
+
+    private String photoName;
     private String name;
     private String description;
     private Boolean special;
@@ -59,6 +66,24 @@ public class Food {
     public void setSpecial(Boolean special) {
         this.special = special;
     }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
 
     @Override
     public String toString() {

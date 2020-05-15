@@ -1,6 +1,6 @@
 package az.restaurant.restaurant.service;
 
-import az.restaurant.restaurant.domain.Food;
+import az.restaurant.restaurant.domain.Book;
 import az.restaurant.restaurant.repository.JpaMenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,19 +10,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-
 @Service
-public class FoodServiceImpl implements FoodService {
+public class BookServiceImpl implements BookService {
 
     @Autowired
     private JpaMenuRepository jpaMenuRepository;
 
 
     @Override
-    public Page<Food> getAllMenu(long category, int start, int limit) {
+    public Page<Book> getAllMenu(long category, int start, int limit) {
         Pageable pageable = PageRequest.of(start, limit);
-        Page<Food> menu;
+        Page<Book> menu;
         if (category==-1){
             menu= jpaMenuRepository.findAll(pageable);
         }
