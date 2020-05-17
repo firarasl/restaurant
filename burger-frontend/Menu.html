@@ -7,6 +7,9 @@
     <title>Restaurant</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
@@ -92,6 +95,13 @@
                                     <div class="book_btn d-none d-xl-block">
                                         <a class="#" href="#">+10 367 453 7382</a>
                                     </div>
+                                    <div>
+
+                                        <button type="button" class="btn btn-warning btn-lg">
+                                            <span class="glyphicon glyphicon-shopping-cart"></span> <span id="cart-items"></span>
+                                          </button>
+
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -130,7 +140,7 @@
                         <div class="info">
                             <h3>Beefy Burgers</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -142,7 +152,7 @@
                         <div class="info">
                             <h3>Burger Boys</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
 
@@ -155,7 +165,7 @@
                         <div class="info">
                             <h3>Burger Bizz</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -167,7 +177,7 @@
                         <div class="info">
                             <h3>Crackles Burger</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -179,7 +189,7 @@
                         <div class="info">
                             <h3>Bull Burgers</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
 
@@ -192,7 +202,7 @@
                         <div class="info">
                             <h3>Rocket Burgers</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -204,7 +214,7 @@
                         <div class="info">
                             <h3>Smokin Burger</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -216,7 +226,7 @@
                         <div class="info">
                             <h3>Delish Burger</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -228,7 +238,7 @@
                         <div class="info">
                             <h3>Crackles Burger</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -240,7 +250,7 @@
                         <div class="info">
                             <h3>Bull Burgers</h3>
                             <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a href="#" class="boxed-btn3">Add to cart</a>
+                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
                         </div>
                     </div>
 
@@ -345,6 +355,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- footer_end  -->
 
     <!-- JS here -->
+
     <script src="js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -375,11 +386,28 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <script>
+            localStorage.setItem("cartItems", 0);
+
+
         var categoryId= localStorage.getItem("category");
         $(document).ready(function(){
             ajaxFilling(0);
             localStorage.setItem("currentPage", "1");
+            getCartItems();
         });
+
+        function getCartItems(){
+            var cartItems=localStorage.getItem("cartItems");
+            document.getElementById("cart-items").innerHTML=cartItems;
+        }
+        function addToCart(){
+            var cartItems=localStorage.getItem("cartItems");
+            cartItems++;
+            localStorage.setItem("cartItems",cartItems);
+            getCartItems();
+        }
+
+
 
         function pagination(totalPages){
             var currentPage=localStorage.getItem("currentPage");
