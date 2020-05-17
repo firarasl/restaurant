@@ -3,8 +3,8 @@ package az.restaurant.restaurant.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "restaurant")
-public class Restaurant {
+@Table(name = "book_store")
+public class BookStore {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Restaurant {
     private String address;
     private String phone;
     private String email;
-    private String cheff;
+    private String director;
 
     public long getId() {
         return id;
@@ -67,12 +67,12 @@ public class Restaurant {
         this.email = email;
     }
 
-    public String getCheff() {
-        return cheff;
+    public String getDirector() {
+        return director;
     }
 
-    public void setCheff(String cheff) {
-        this.cheff = cheff;
+    public void setDirector(String cheff) {
+        this.director = cheff;
     }
 
     @Override
@@ -84,7 +84,7 @@ public class Restaurant {
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", cheff='" + cheff + '\'' +
+                ", cheff='" + director + '\'' +
                 '}';
     }
 }
