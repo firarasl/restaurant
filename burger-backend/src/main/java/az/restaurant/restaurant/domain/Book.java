@@ -31,6 +31,14 @@ public class Book {
         return id;
     }
 
+    public String getPhotoName() {
+        return photoName;
+    }
+
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
