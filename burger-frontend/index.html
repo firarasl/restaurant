@@ -43,13 +43,13 @@
                                     <ul id="navigation">
                                         <li><a class="active" href="index.html">home</a></li>
                                         <li><a onclick="goToAllMenu()">Menu <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a onclick="goToAllMenu()">All dishes</a></li>
+                                            <ul class="submenu" id="submenu">
+                                            <!--    <li><a onclick="goToAllMenu()">All dishes</a></li>
                                                 <li><a onclick="goToSoupMenu()">Soups</a></li>
                                                 <li><a onclick="goToDryMenu()">Main Dish</a></li>
                                                 <li><a onclick="goToDessertMenu()">Desserts</a></li>
                                                 <li><a onclick="goToJuiceMenu()">Drinks</a></li>
-
+                                            -->
                                             </ul>
                                         </li>
                                         <li><a href="about.html">About</a></li>
@@ -179,8 +179,8 @@
 
     <!-- features_room_startt -->
     <div class="Burger_President_area">
-        <div class="Burger_President_here">
-            <div class="single_Burger_President">
+        <div class="Burger_President_here" id="special-books">
+ <!--           <div class="single_Burger_President">
                 <div class="room_thumb">
                     <img src="img/burgers/1.png" alt="">
                     <div class="room_heading d-flex justify-content-between align-items-center">
@@ -190,7 +190,7 @@
                             <p>Great way to make your business appear trust <br> and relevant.</p>
                             <a href="#" class="boxed-btn3">Add to cart</a>
                         </div>
-                        
+                     
                     </div>
                 </div>
             </div>
@@ -206,7 +206,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->  
         </div>
     </div>
     <!-- features_room_end -->
@@ -330,25 +330,50 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/main.js"></script>
 
     <script>
-        function goToAllMenu() {              
-            myWindow=window.open("http://localhost:5500/Menu.html");
-            localStorage.setItem("category", "-1");
+
+        $(document).ready(function(){
+            
+            $.ajax({
+            url: "http://localhost:8080/all-catalogues",
+            success: function(data){
+                $("#submenu").append("<li><a onclick='goToAllMenu(-1)'>All Books</a></li>");
+                for(i=0; i<data.length; i++){
+                $("#submenu").append("<li><a onclick='goToAllMenu("+data[i].id+")'>"+data[i].name+"</a></li>");
+            console.log(data[i].name);
+            }
+            }, error: function (e) {
+            console.log(e.message);
+        }
+    })
+    getSpecialBooks();
+        });
+
+        function goToAllMenu(number) {              
+        window.open("http://localhost:5500/Menu.html");
+
+        localStorage.setItem("category", number);
 }
-        function goToSoupMenu() {              
-            myWindow=window.open("http://localhost:5500/Menu.html");
-            localStorage.setItem("category", "1");
-}       function goToDryMenu() {              
-            myWindow=window.open("http://localhost:5500/Menu.html");
-            localStorage.setItem("category", "2");
-}
-        function goToDessertMenu() {              
-            myWindow=window.open("http://localhost:5500/Menu.html");
-            localStorage.setItem("category", "3");
-}
-        function goToJuiceMenu() {              
-            myWindow=window.open("http://localhost:5500/Menu.html");
-            localStorage.setItem("category", "4");
-}
+
+
+        function getSpecialBooks(){
+            $.ajax({
+                url: "http://localhost:8080/special-menu",
+            success: function(data){
+                
+                for(i=0; i<data.length; i++){
+                $("#special-books").append("<div class='single_Burger_President'><div class='room_thumb'><img  height='400px' src='img/book/"+data[i].photoName+
+                    "' alt=''><div class='room_heading d-flex justify-content-between align-items-center'><div class='room_heading_inner'><span>"+data[i].price+
+                        "</span><h3>"+data[i].name+"</h3><p>"+data[i].description+
+                            "<br></p><strong>"+data[i].author.name+"  |   "+
+                                 data[i].category.name+
+                                 "</strong><a href='' class='boxed-btn3'>Add to cart</a></div></div></div></div>");
+            }
+            }, error: function (e) {
+            console.log(e.message);
+        }
+            })
+        }
+
     </script>
 
 </body>

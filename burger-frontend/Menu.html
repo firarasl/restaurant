@@ -15,6 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Place favicon.ico in the root directory -->
 
+
     <!-- CSS here -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -47,10 +48,6 @@
                                             <li><a class="active" href="index.html">home</a></li>
                                             <li><a href="Menu.html">Menu <i class="ti-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li><a href="#">All dishes</a></li>
-                                                    <li><a href="#">Soups</a></li>
-                                                    <li><a href="#">Desserts</a></li>
-                                                    <li><a href="#">Main Dish</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="about.html">About</a></li>
@@ -62,7 +59,7 @@
                             <div class="col-xl-2 col-lg-2">
                                 <div class="logo-img">
                                     <a href="index.html">
-                                        <img src="img/logo.png" alt="">
+                                        <img src="img/booklogo.png" width="150px" height="80px" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -97,7 +94,7 @@
                                     </div>
                                     <div>
 
-                                        <button type="button" class="btn btn-warning btn-lg">
+                                        <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
                                             <span class="glyphicon glyphicon-shopping-cart"></span> <span id="cart-items"></span>
                                           </button>
 
@@ -114,9 +111,29 @@
         </header>
         <!-- header-end -->
 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" tabindex="-1" data-backdrop="false">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
     <!-- bradcam_area_start -->
     <div class="bradcam_area breadcam_bg overlay">
-        <h3>Menu</h3>
+        <h3>Cataloque</h3>
     </div>
     <!-- bradcam_area_end -->
 
@@ -126,143 +143,24 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section_title text-center mb-80">
-                        <span>Burger Menu</span>
-                        <h3>Best Ever Burgers</h3>
+                        <span>Book Cataloque</span>
+                        <h3>Best Ever Books</h3>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/1.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Beefy Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/2.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Boys</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/3.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Burger Bizz</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Crackles Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Bull Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/6.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Rocket Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/7.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Smokin Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/8.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Delish Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-lg-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/4.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Crackles Burger</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_delicious d-flex align-items-center">
-                        <div class="thumb">
-                            <img src="img/burger/5.png" alt="">
-                        </div>
-                        <div class="info">
-                            <h3>Bull Burgers</h3>
-                            <p>Great way to make your business appear trust and relevant.</p>
-                            <span>$5</span><a onclick="addToCart()" class="boxed-btn3">Add to cart</a>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="row" id="books">
+            
             </div>
         </br>
             <div class="row">
                     <div id="pagination">
                       </div>
-            </div>
+                    </div>
+
         </div>
     </div>
+
+
     <!-- best_burgers_area_end  -->
 
     <!-- footer_start  -->
@@ -271,27 +169,21 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-4 col-md-6 col-lg-4">
-                            <div class="footer_widget text-center ">
-                                <h3 class="footer_title pos_margin">
-                                        New York
-                                </h3>
-                                <p>5th flora, 700/D kings road, <br> 
-                                        green lane New York-1782 <br>
-                                        <a href="#">info@burger.com</a></p>
-                                <a class="number" href="#">+10 378 483 6782</a>
-
-                            </div>
+                            
                         </div>
                         <div class="col-xl-4 col-md-6 col-lg-4">
                             <div class="footer_widget text-center ">
                                 <h3 class="footer_title pos_margin">
-                                    California
+                                    Address
                                 </h3>
-                                <p>5th flora, 700/D kings road, <br> 
+                                <div id="store-info">
+                               <!-- 
+                                   <p>5th flora, 700/D kings road, <br> 
                                         green lane New York-1782 <br>
                                         <a href="#">info@burger.com</a></p>
                                 <a class="number" href="#">+10 378 483 6782</a>
-
+                            -->
+</div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-md-12 col-lg-4">
@@ -375,81 +267,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/plugins.js"></script>
 
     <!--contact js-->
+    
     <script src="js/contact.js"></script>
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/mail-script.js"></script>
-
+    <script src="js/myJavascriptCode.js"></script>
     <script src="js/main.js"></script>
 
 
 
     <script>
-            localStorage.setItem("cartItems", 0);
 
+        
 
+        localStorage.setItem("cartItems", 0);
         var categoryId= localStorage.getItem("category");
+
         $(document).ready(function(){
             ajaxFilling(0);
-            localStorage.setItem("currentPage", "1");
+            ajaxStoreInfo();
+            localStorage.setItem("currentPage", 1);
             getCartItems();
         });
 
-        function getCartItems(){
-            var cartItems=localStorage.getItem("cartItems");
-            document.getElementById("cart-items").innerHTML=cartItems;
-        }
-        function addToCart(){
-            var cartItems=localStorage.getItem("cartItems");
-            cartItems++;
-            localStorage.setItem("cartItems",cartItems);
-            getCartItems();
-        }
-
-
-
-        function pagination(totalPages){
-            var currentPage=localStorage.getItem("currentPage");
-            if(currentPage!=1){
-                var prev=currentPage-1;
-                var text="<a onclick='particularPage("+prev+")'>&laquo;</a>";
-            }
-            else{
-                var text="";
-            }
-        for (i = 1; i <= totalPages; i++) {
-         text +="<a onclick='particularPage("+i+")'>"+i+"</a>";
-        }
-            if(currentPage!=totalPages){
-                var next=currentPage-1;
-
-                text+="<a onclick='particularPage("+next+")'>&raquo;</a>";
-            }
-            
-        document.getElementById("pagination").innerHTML = text;
-}
-        function particularPage(i){
-            localStorage.setItem("currentPage", i);
-            ajaxFilling(i-1);
-        }
-
-        function ajaxFilling(start){
-            $.ajax({
-            url: "http://localhost:8080/menu/"+categoryId,
-            data: {
-                start: start,
-                limit: 10
-                }, 
-            success: function(data){
-                var totalPages=data.totalPages;
-                pagination(totalPages);
-            }, error: function (e) {
-            console.log(e.message);
-        }
-    })
-        }
-
+       
     </script>
 </body>
 
